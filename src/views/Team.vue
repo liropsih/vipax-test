@@ -5,8 +5,8 @@
     </div>
     <div v-else>
       <b-container>
-        <b-row class="pb-3">
-          <b-col sm="12" md="6" offset-lg="1" lg="4">
+        <b-row>
+          <b-col sm="12" md="6" offset-lg="1" lg="4" class="mb-5">
             <p>Члены команды:</p>
             <div class="mb-3">
               <b-button-group>
@@ -34,7 +34,7 @@
               </b-list-group-item>
             </b-list-group>
           </b-col>
-          <b-col sm="12" md="6" offset-lg="2" lg="4">
+          <b-col sm="12" md="6" offset-lg="2" lg="4" class="mb-5">
             <p>Список пользователей:</p>
             <div>
               <div class="mb-3">

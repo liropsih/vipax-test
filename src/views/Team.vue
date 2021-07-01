@@ -26,7 +26,7 @@
               >
                 <b-avatar class="mr-3" :src="person.avatar_url"></b-avatar>
                 <span class="mr-auto">
-                  <a :href="person.url">{{ person.login }}</a>
+                  <a :href="person.html_url">{{ person.login }}</a>
                 </span>
                 <b-button variant="light" @click="removePerson(idx)">
                   <b-icon-x-square />
@@ -48,7 +48,7 @@
                 >
                   <b-avatar class="mr-3" :src="user.avatar_url"></b-avatar>
                   <span class="mr-auto"
-                    ><a :href="user.url">{{ user.login }}</a></span
+                    ><a :href="user.html_url">{{ user.login }}</a></span
                   >
                 <b-button variant="light" @click="addUser(idx)">
                   <b-icon-plus-square />

@@ -20,7 +20,7 @@
                 <HomeRepos :reposUrl="user.repos_url" />
               </b-tab>
               <b-tab title="Подписки">
-                <HomeSubscriptions :subscriptionsUrl="user.subscriptions_url" />
+                <HomeSubscriptions />
               </b-tab>
             </b-tabs>
           </b-col>

@@ -54,6 +54,14 @@ export default new Vuex.Store({
         }
         data.forEach(async repo => {
           const { data } = await $axios(repo.languages_url)
+          let sum = 0
+          for (let value of Object.values(data)) {
+            sum += value
+            debugger
+          }
+          debugger
+          repo.languagesSum = sum
+          debugger
           repo.languages = data
           repo.created_at = new Intl.DateTimeFormat('ru-RU', options).format(new Date(repo.created_at))
         })

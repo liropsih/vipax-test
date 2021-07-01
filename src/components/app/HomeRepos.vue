@@ -35,12 +35,12 @@
           <div v-for="(value, name) in repo.languages" :key="value">
             <span
               >{{ name }} ({{
-                ((value / languagesMaxValues) * 100).toFixed(1)
+                ((value / repo.languagesSum) * 100).toFixed(1)
               }}%)</span
             >
             <b-progress
               :value="value"
-              :max="languagesMaxValues"
+              :max="repo.languagesSum"
               class="mb-3"
             ></b-progress>
           </div>
@@ -63,18 +63,7 @@ export default {
     }
   },
   computed: {
-    ...mapGetters(['repos']),
-    languagesMaxValues() {
-      let sum = 0
-      if (this.repos) {
-        this.repos.forEach(repo => {
-          for (let value of Object.values(repo.languages)) {
-            sum += value
-          }
-        })
-      }
-      return sum
-    }
+    ...mapGetters(['repos'])
   },
   async created() {
     if (!this.repos) {

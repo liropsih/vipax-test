@@ -11,7 +11,7 @@
             <h5>
               <a :href="user.html_url">{{ user.name }}</a>
             </h5>
-            <p>Дата создания аккаунта:</p>
+            <p class="mb-1">Дата создания аккаунта:</p>
             <span>{{ user.created_at }}</span>
           </b-col>
           <b-col sm="12" md="8" lg="9">

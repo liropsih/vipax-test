@@ -6,7 +6,7 @@
     <div v-else>
       <b-container>
         <b-row class="pb-3">
-          <b-col sm="12" md="6" lg="6">
+          <b-col sm="12" md="6" offset-lg="1" lg="4">
             <p>Члены команды:</p>
             <div class="mb-3">
               <b-button-group>
@@ -18,7 +18,7 @@
                 </b-button>
               </b-button-group>
             </div>
-            <b-list-group style="max-width: 300px">
+            <b-list-group>
               <b-list-group-item
                 class="d-flex align-items-center"
                 v-for="(person, idx) in team"
@@ -34,9 +34,9 @@
               </b-list-group-item>
             </b-list-group>
           </b-col>
-          <b-col sm="12" md="6" lg="6">
+          <b-col sm="12" md="6" offset-lg="2" lg="4">
             <p>Список пользователей:</p>
-            <div style="max-width: 300px">
+            <div>
               <div class="mb-3">
                 <b-form-input v-model="searchedUser" placeholder="Поиск" />
               </div>

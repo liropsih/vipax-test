@@ -15,7 +15,7 @@
           <b-card class="mb-3">
             <b-avatar class="mr-3" :src="subscription.avatar_url"></b-avatar>
                 <span class="mr-auto">
-                  <a :href="subscription.url">{{ subscription.login }}</a>
+                  <a :href="subscription.html_url">{{ subscription.login }}</a>
                 </span>
           </b-card>
         </b-col>

@@ -7,10 +7,10 @@
       <b-card
         v-for="repo in repos"
         :key="repo.id"
-        :title="repo.name"
         tag="article"
         class="mb-2"
       >
+      <b-card-title><a :href="repo.html_url">{{repo.name}}</a></b-card-title>
         <b-card-text v-if="repo.description">
           {{ repo.description }}
         </b-card-text>

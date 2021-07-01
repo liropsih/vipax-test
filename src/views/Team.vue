@@ -21,14 +21,14 @@
             <b-list-group>
               <b-list-group-item
                 class="d-flex align-items-center"
-                v-for="(person, idx) in team"
+                v-for="person in team"
                 :key="person.id"
               >
                 <b-avatar class="mr-3" :src="person.avatar_url"></b-avatar>
                 <span class="mr-auto">
                   <a :href="person.html_url">{{ person.login }}</a>
                 </span>
-                <b-button variant="light" @click="removePerson(idx)">
+                <b-button variant="light" @click="removePerson(person.id)">
                   <b-icon-x-square />
                 </b-button>
               </b-list-group-item>
@@ -43,17 +43,16 @@
               <b-list-group>
                 <b-list-group-item
                   class="d-flex align-items-center"
-                  v-for="(user, idx) in search"
+                  v-for="user in search"
                   :key="user.id"
                 >
                   <b-avatar class="mr-3" :src="user.avatar_url"></b-avatar>
                   <span class="mr-auto"
                     ><a :href="user.html_url">{{ user.login }}</a></span
                   >
-                <b-button variant="light" @click="addUser(idx)">
+                <b-button variant="light" @click="addUser(user.id)">
                   <b-icon-plus-square />
                 </b-button>
-                  <!-- <b-badge class="pointer" @click="addUser(idx)">+</b-badge> -->
                 </b-list-group-item>
               </b-list-group>
             </div>
@@ -104,14 +103,15 @@ export default {
   },
   methods: {
     ...mapActions(['getTeam', 'updateTeam', 'getUsers', 'updateUsers']),
-    addUser(idx) {
-      this.team.push(this.users[idx])
-      this.users.splice(idx, 1)
+    addUser(id) {
+      let user = this.users.find(u => u.id == id)
+      this.team.push(user)
+      this.users = this.users.filter(u => u.id !== id)
     },
-    removePerson(idx) {
-      this.users.push(this.team[idx])
-      this.team.splice(idx, 1)
-
+    removePerson(id) {
+      let person = this.team.find(p => p.id == id)
+      this.users.push(person)
+      this.team = this.team.filter(p => p.id !== id)
     },
     sortTeamAsc() {
       this.team.sort((a, b) => {
